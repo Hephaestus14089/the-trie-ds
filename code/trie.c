@@ -29,9 +29,22 @@ Node* getNewNode() {
     return newNode;
 }
 
+typedef struct Trie {
+    Node* root;
+} Trie;
+
+Trie* getNewTrie() {
+
+    Trie* newTrie = (Trie*)malloc(sizeof(Trie));
+    newTrie->root = getNewNode();
+
+    return newTrie;
+}
+
 int main() {
 
-    Node* node = getNewNode();
+    Trie* trie = getNewTrie();
+    Node* node = trie->root;
 
     int i = 0;
     for (; i < ALPHABET_SIZE; i++) {

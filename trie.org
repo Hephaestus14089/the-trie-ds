@@ -10,6 +10,7 @@ For reference: https://en.wikipedia.org/wiki/Trie
 - [[#includes][Includes]]
 - [[#global-variables][Global Variables]]
 - [[#a-trie-node][A Trie Node]]
+- [[#a-trie][A Trie]]
 - [[#the-main-function][The Main Function]]
 
 * Includes
@@ -62,6 +63,23 @@ Node* getNewNode() {
 }
 #+end_src
 
+* A Trie
+- Defining the structure of a trie,
+- Creating a function that allocates the memory for a trie in the heap, initialises its member variables, and returns the address of the new trie.
+
+#+begin_src c
+typedef struct Trie {
+    Node* root;
+} Trie;
+
+Trie* getNewTrie() {
+
+    Trie* newTrie = (Trie*)malloc(sizeof(Trie));
+    newTrie->root = getNewNode();
+
+    return newTrie;
+}
+#+end_src
 * The Main Function
 The driver function of the entire program.
 
@@ -70,7 +88,8 @@ Currently, the code inside this function is primarily for demonstration and debu
 #+begin_src c
 int main() {
 
-    Node* node = getNewNode();
+    Trie* trie = getNewTrie();
+    Node* node = trie->root;
 
     int i = 0;
     for (; i < ALPHABET_SIZE; i++) {
