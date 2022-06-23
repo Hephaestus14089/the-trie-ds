@@ -1,0 +1,46 @@
+#+title: The Trie Data Structure
+
+This small project is an attempt by me to discover the beauty of the trie data structure and documenting in org-mode.
+
+* Contents :toc:
+- [[#a-brief-introduction][A Brief Introduction]]
+- [[#about-this-project][About This Project]]
+- [[#bibliography][Bibliography]]
+
+* A Brief Introduction
+- What's a 'trie'?
+
+    A trie is an efficient information retrieval data structure. It is also known as 'digital tree' or 'prefix tree'.
+
+    Reference: https://en.wikipedia.org/wiki/Trie
+
+- What's 'org-mode'?
+
+    Org-mode is a documenting, editing, formatting and organinsing mode within the free software text editor Emacs.
+    Org-mode offers the ability to insert source code in the document being edited, which is automatically exported and/or executed when exporting the document; the result produced by this code can be automatically fetched back in the resulting output.
+
+    Reference: https://en.wikipedia.org/wiki/Org-mode
+
+* About This Project
+When I was unable to decide which one of the two very interesting entities to try out first; I ended up trying them out simultaneously. That is exactly how this small project was born.
+
+I am documenting alongside writing the code in the .org files itself. The source code blocks of each .org file is exported to a .c file of the same name present in the './code/' sub-folder.
+
+* Bibliography
+- I came to know about 'Org-mode' because of an extremely cool youtube channel named 'DistroTube' which provides some extremely cool content.
+  The creator has an Odysee channel too of the same name.
+  At the beginning of this project, when I was writing my first .org file, I was using a video of this channel as my supreme guide in the particular task.
+
+  youtube channel: https://youtube.com/c/DistroTube
+
+  odysee channel: https://odysee.com/@DistroTube:2
+
+
+- I don't really remember how I came to know about the trie data structure, but I am certain that I started my research on the topic through geeksforgeeks.org, I have gathered information on trie through this website which has immensely project.
+
+  https://www.geeksforgeeks.org/
+
+
+- Whenever I needed more information...
+
+  https://en.wikipedia.org
