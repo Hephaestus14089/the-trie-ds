@@ -1,0 +1,84 @@
+#+title: Trie
+#+property: header-args :tangle ./code/trie.c
+
+Implementing the trie data structure in C.
+'Trie' is also known as 'digital tree' of 'prefix tree'.
+
+For reference: https://en.wikipedia.org/wiki/Trie
+
+* Contents :toc:
+- [[#includes][Includes]]
+- [[#global-variables][Global Variables]]
+- [[#a-trie-node][A Trie Node]]
+- [[#the-main-function][The Main Function]]
+
+* Includes
+The usual C includes.
+(Input/Output and Standard Library)
+
+#+begin_src c
+#include <stdio.h>
+#include <stdlib.h>
+#+end_src
+
+* Global Variables
+The variables working in global scope.
+Only one global variable which containes the size of each container of child nodes in each node of the trie.
+The size is equal to the number of alphabets (i.e. 26), which remains same throughout the program.
+
+#+begin_src c
+const int ALPHABET_SIZE = 26; // size of every container of child nodes
+#+end_src
+
+* A Trie Node
+- Defining the structure for each node of the trie,
+- Creating a function which allocates memory for a new node, initialises its member variables and returns the address of the new node.
+
+#+begin_src c
+typedef struct Node {
+    struct Node** children; // pointer to the collection of child nodes
+    int isEndOfWord; // whether the node is the last node of a word/key
+} Node;
+
+Node* getNewNode() {
+
+    Node* newNode = (Node*)malloc(sizeof(Node));
+
+    if (newNode == NULL) { // check whether allocation was successfull
+        printf("err: Unable to allocate memory!");
+        return NULL;
+    }
+
+    newNode->children = (Node**)malloc(sizeof(Node*) * ALPHABET_SIZE);
+
+    int i = 0;
+    for (; i < ALPHABET_SIZE; i++) {
+        *(newNode->children + i) = NULL; // initialising each block as null
+    }
+
+    newNode->isEndOfWord = 0; // initialising as false
+
+    return newNode;
+}
+#+end_src
+
+* The Main Function
+The driver function of the entire program.
+
+Currently, the code inside this function is primarily for demonstration and debugging purposes...
+
+#+begin_src c
+int main() {
+
+    Node* node = getNewNode();
+
+    int i = 0;
+    for (; i < ALPHABET_SIZE; i++) {
+        if (*(node->children + i) == NULL)
+            printf("%d. null\n", i);
+    }
+
+    printf("\nisEndOfWord: %d\n", node->isEndOfWord);
+    return 0;
+}
+#+end_src
